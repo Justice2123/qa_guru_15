@@ -5,7 +5,7 @@ import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
-public class ListResourceTest extends TestBase {
+public class ReqresInTest extends TestBase {
 
     @Test
     void listDataNotEmptyTest() {
