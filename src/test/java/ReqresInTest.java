@@ -30,6 +30,7 @@ public class ReqresInTest extends TestBase {
                 .body("data[0].id", is(1));
     }
 
+
     @Test
     void unSuccessfulCreate415Test() {
         given()
@@ -49,10 +50,8 @@ public class ReqresInTest extends TestBase {
                 .body(authData)
                 .contentType(JSON)
                 .log().uri()
-
                 .when()
                 .post("/users")
-
                 .then()
                 .log().status()
                 .log().body()
@@ -63,19 +62,15 @@ public class ReqresInTest extends TestBase {
 
 
     @Test
-    void unsuccessfulCreateTest() {
-
-
+    void singleUserNotFound() {
         given()
-
-                .log().uri()
-                .when()
-                .post("/users")
+                .log()
+                .all()
+                .get("/users/23")
                 .then()
-                .log().status()
-                .log().body()
-                .statusCode(415);
-
+                .log()
+                .all()
+                .statusCode(404);
     }
 
 
